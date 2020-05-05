@@ -1,0 +1,31 @@
+// Colour
+$color-primary: #660000;
+$color-primary-light: lighten($color-primary, 12);
+$color-primary-dark: darken($color-primary, 8);
+
+$color-secondary: #444554;
+$color-secondary-light: lighten($color-secondary, 8);
+$color-secondary-dark: darken($color-secondary, 8);
+
+$color-tertiary: #595959;
+$color-tertiary-light: lighten($color-tertiary, 8);
+$color-tertiary-dark: darken($color-tertiary, 8);
+
+$color-danger: #cc0000;
+$color-warning: #dd820a;
+$color-success: #50b04d;
+
+$color-white: #fff;
+$color-grey-light: #ddd;
+$color-grey: #aaa;
+$color-grey-dark: #333;
+$color-black: #000;
+
+// Font
+$default-font-size: 1.6rem;
+
+// Grid
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 4rem;
+$gutter-horizontal: 6rem;

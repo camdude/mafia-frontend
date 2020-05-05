@@ -1,0 +1,39 @@
+.PreGame {
+  margin: 0 auto;
+  max-width: 40rem;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.Lobby {
+  margin: 0 auto;
+  max-width: 60rem;
+
+  &__users {
+    margin-bottom: 4rem;
+    list-style: none;
+  }
+
+  &__admin {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.RoleAssign {
+  margin: 0 auto;
+  max-width: 60rem;
+}
+
+.MafiaAction {
+  margin: 0 auto;
+  max-width: 60rem;
+}
+
+.SleepAction {
+  margin: 0 auto;
+  max-width: 60rem;
+}
