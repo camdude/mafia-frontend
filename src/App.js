@@ -6,6 +6,8 @@ import Lobby from "./pages/Lobby";
 import RoleAssign from "./pages/RoleAssign";
 import SleepAction from "./pages/SleepAction";
 import MafiaAction from "./pages/MafiaAction";
+import DetectiveAction from "./pages/DetectiveAction";
+import DoctorAction from "./pages/DoctorAction";
 
 const socket = socketIOClient("http://192.168.0.7:5000");
 
@@ -37,11 +39,7 @@ const App = () => {
 
     case "roleAssign":
       mafiaGame = (
-        <RoleAssign
-          socket={socket}
-          gameState={gameState}
-          user={username}
-        />
+        <RoleAssign socket={socket} gameState={gameState} user={username} />
       );
       break;
 
@@ -57,11 +55,29 @@ const App = () => {
     case "detectiveAction":
       if (gameState.userData[username].role === "detective") {
         mafiaGame = (
-          <p>Detective Action</p>
+          <DetectiveAction
+            socket={socket}
+            gameState={gameState}
+            user={username}
+          />
         );
       } else {
         mafiaGame = <SleepAction />;
       }
+      break;
+
+    case "doctorAction":
+      if (gameState.userData[username].role === "doctor") {
+        mafiaGame = (
+          <DoctorAction socket={socket} gameState={gameState} user={username} />
+        );
+      } else {
+        mafiaGame = <SleepAction />;
+      }
+      break;
+
+    case "dayPhase":
+      mafiaGame = <p>Day phase!</p>;
       break;
 
     default:

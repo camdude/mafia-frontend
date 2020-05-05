@@ -46,9 +46,9 @@ const PreGame = (props) => {
       room: props.gameState.room,
       user: props.user,
       roles: {
-        mafia: mafiaInput,
-        detective: detectiveInput,
-        doctor: doctorInput,
+        mafia: Number(mafiaInput),
+        detective: Number(detectiveInput),
+        doctor: Number(doctorInput),
         villager:
           Object.keys(props.gameState.userData).length -
           (Number(mafiaInput) + Number(detectiveInput) + Number(doctorInput)),

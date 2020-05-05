@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 
-const MafiaAction = (props) => {
+const DetectiveAction = (props) => {
   const [vote, setVote] = useState();
 
-  const onMafiaVote = (event) => {
+  const onDetectiveVote = (event) => {
     setVote(event.target.id);
     props.socket.emit("vote", {
       room: props.gameState.room,
-      type: "mafia",
+      type: "detective",
       user: props.user,
       votedUser: event.target.id,
     });
   };
 
   return (
-    <div className="MafiaAction">
-      <h2 className="heading-secondary u-center-text">Mafia wake up</h2>
-      <p className="paragraph">Choose someone you would like to kill.</p>
+    <div className="DetectiveAction">
+      <h2 className="heading-secondary u-center-text">Detectives wake up</h2>
+      <p className="paragraph">Choose someone you would like to investigate.</p>
       <div className="">
         {Object.keys(props.gameState.userData).map((user) => {
-          if (props.gameState.userData[user].role !== "mafia") {
+          if (props.gameState.userData[user].role !== "detective") {
             return (
               <button
                 key={user}
                 id={user}
                 disabled={user === vote}
-                onClick={onMafiaVote}
+                onClick={onDetectiveVote}
               >{`${user} (${
                 props.gameState.userData[user].vote.length || 0
               } votes)`}</button>
@@ -37,4 +37,4 @@ const MafiaAction = (props) => {
   );
 };
 
-export default MafiaAction;
+export default DetectiveAction;
