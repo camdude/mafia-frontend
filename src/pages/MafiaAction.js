@@ -19,14 +19,18 @@ const MafiaAction = (props) => {
       <p className="paragraph">Choose someone you would like to kill.</p>
       <div className="">
         {Object.keys(props.gameState.userData).map((user) => {
-          return (
-            <button
-              key={user}
-              id={user}
-              disabled={user === vote}
-              onClick={onMafiaVote}
-            >{`${user} (${props.gameState.userData[user].vote.length || 0} votes)`}</button>
-          );
+          if (props.gameState.userData[user].role !== "mafia") {
+            return (
+              <button
+                key={user}
+                id={user}
+                disabled={user === vote}
+                onClick={onMafiaVote}
+              >{`${user} (${
+                props.gameState.userData[user].vote.length || 0
+              } votes)`}</button>
+            );
+          }
         })}
       </div>
     </div>
