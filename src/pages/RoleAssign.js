@@ -12,15 +12,35 @@ const RoleAssign = (props) => {
     setWaiting(true);
   };
 
+  let allies = (
+    <div className="allies">
+      <p>The following people are also on your team</p>
+      <ul>
+        {Object.keys(props.gameState.userData).map((user) => {
+          if (
+            props.user !== user &&
+            props.gameState.userData[props.user].role ===
+            props.gameState.userData[user].role
+          ) {
+            return <li>{user}</li>;
+          }
+        })}
+      </ul>{" "}
+    </div>
+  );
+
   return (
-    <div className="RoleAssign">
+    <div className="ActionPage">
       <h2 className="heading-secondary u-center-text">
         You are a {props.gameState.userData[props.user].role}
       </h2>
-      <button onClick={onReady}>
+      {props.gameState.userData[props.user].role !== "villager" ? allies : null}
+      <br />
+      <button onClick={onReady} disabled={waiting}>
         {waiting
           ? `Waiting on ${
-            Object.keys(props.gameState.userData).length - props.gameState.ready
+              Object.keys(props.gameState.userData).length -
+              props.gameState.ready
             } users`
           : "Ready"}
       </button>

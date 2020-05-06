@@ -8,6 +8,11 @@ import SleepAction from "./pages/SleepAction";
 import MafiaAction from "./pages/MafiaAction";
 import DetectiveAction from "./pages/DetectiveAction";
 import DoctorAction from "./pages/DoctorAction";
+import DetectiveInvestigation from "./pages/DetectiveInvestigation";
+import MafiaKill from "./pages/MafiaKill";
+import DoctorSave from "./pages/DoctorSave";
+import DayPhase from "./pages/DayPhase";
+import DayVoting from "./pages/DayVoting";
 
 const socket = socketIOClient("http://192.168.0.7:5000");
 
@@ -52,10 +57,32 @@ const App = () => {
         mafiaGame = <SleepAction />;
       }
       break;
+    case "mafiaKill":
+      if (gameState.userData[username].role === "mafia") {
+        mafiaGame = (
+          <MafiaKill socket={socket} gameState={gameState} user={username} />
+        );
+      } else {
+        mafiaGame = <SleepAction />;
+      }
+      break;
     case "detectiveAction":
       if (gameState.userData[username].role === "detective") {
         mafiaGame = (
           <DetectiveAction
+            socket={socket}
+            gameState={gameState}
+            user={username}
+          />
+        );
+      } else {
+        mafiaGame = <SleepAction />;
+      }
+      break;
+    case "detectiveInvestigation":
+      if (gameState.userData[username].role === "detective") {
+        mafiaGame = (
+          <DetectiveInvestigation
             socket={socket}
             gameState={gameState}
             user={username}
@@ -75,11 +102,23 @@ const App = () => {
         mafiaGame = <SleepAction />;
       }
       break;
-
-    case "dayPhase":
-      mafiaGame = <p>Day phase!</p>;
+    case "doctorSave":
+      if (gameState.userData[username].role === "doctor") {
+        mafiaGame = (
+          <DoctorSave socket={socket} gameState={gameState} user={username} />
+        );
+      } else {
+        mafiaGame = <SleepAction />;
+      }
       break;
-
+    case "dayPhase":
+      mafiaGame = <DayPhase socket={socket} gameState={gameState} />;
+      break;
+    case "dayVote":
+      mafiaGame = (
+        <DayVoting socket={socket} gameState={gameState} user={username} />
+      );
+      break;
     default:
       mafiaGame = <PreGame socket={socket} setUsername={setUsername} />;
   }

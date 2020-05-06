@@ -108,8 +108,7 @@ body {
 .heading-tertiary {
   display: inline-block;
   margin-bottom: .5rem;
-  font-size: 1.8rem;
-  text-transform: uppercase; }
+  font-size: 1.8rem; }
 
 .paragraph {
   font-size: 1.6rem;
@@ -150,17 +149,13 @@ body {
     display: flex;
     flex-direction: column; }
 
-.RoleAssign {
+.ActionPage {
   margin: 0 auto;
   max-width: 60rem; }
 
-.MafiaAction {
-  margin: 0 auto;
-  max-width: 60rem; }
-
-.SleepAction {
-  margin: 0 auto;
-  max-width: 60rem; }
+.Voting {
+  display: flex;
+  flex-direction: column; }
 
 .row {
   max-width: 114rem;

@@ -14,10 +14,10 @@ const DetectiveAction = (props) => {
   };
 
   return (
-    <div className="DetectiveAction">
+    <div className="ActionPage">
       <h2 className="heading-secondary u-center-text">Detectives wake up</h2>
       <p className="paragraph">Choose someone you would like to investigate.</p>
-      <div className="">
+      <div className="Voting">
         {Object.keys(props.gameState.userData).map((user) => {
           if (props.gameState.userData[user].role !== "detective") {
             return (

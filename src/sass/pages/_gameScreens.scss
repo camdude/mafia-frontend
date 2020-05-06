@@ -23,17 +23,12 @@
   }
 }
 
-.RoleAssign {
+.ActionPage {
   margin: 0 auto;
   max-width: 60rem;
 }
 
-.MafiaAction {
-  margin: 0 auto;
-  max-width: 60rem;
-}
-
-.SleepAction {
-  margin: 0 auto;
-  max-width: 60rem;
+.Voting {
+  display: flex;
+  flex-direction: column;
 }

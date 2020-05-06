@@ -14,10 +14,10 @@ const MafiaAction = (props) => {
   };
 
   return (
-    <div className="MafiaAction">
+    <div className="ActionPage">
       <h2 className="heading-secondary u-center-text">Mafia wake up</h2>
       <p className="paragraph">Choose someone you would like to kill.</p>
-      <div className="">
+      <div className="Voting">
         {Object.keys(props.gameState.userData).map((user) => {
           if (props.gameState.userData[user].role !== "mafia") {
             return (
