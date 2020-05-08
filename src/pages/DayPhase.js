@@ -16,9 +16,9 @@ const DayPhase = (props) => {
       <p className="paragraph">
         It seems that during the night the mafia amoung you attempted to kill
       </p>
-      <h3 className="heading-tertiary u-center-text">
+      <h2 className="heading-secondary u-center-text">
         {props.gameState.results.killed}
-      </h3>
+      </h2>
       <p className="paragraph">{result}</p>
     </div>
   );

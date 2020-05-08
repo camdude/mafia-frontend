@@ -13,8 +13,10 @@ import MafiaKill from "./pages/MafiaKill";
 import DoctorSave from "./pages/DoctorSave";
 import DayPhase from "./pages/DayPhase";
 import DayVoting from "./pages/DayVoting";
+import WinVillager from "./pages/WinVillager";
+import WinMafia from "./pages/WinMafia";
 
-const socket = socketIOClient("http://192.168.0.7:5000");
+const socket = socketIOClient("http://192.168.0.12:5000");
 
 const App = () => {
   const [error, setError] = useState();
@@ -117,6 +119,16 @@ const App = () => {
     case "dayVote":
       mafiaGame = (
         <DayVoting socket={socket} gameState={gameState} user={username} />
+      );
+      break;
+    case "winVillager":
+      mafiaGame = (
+        <WinVillager />
+      );
+      break;
+    case "winMafia":
+      mafiaGame = (
+        <WinMafia />
       );
       break;
     default:
