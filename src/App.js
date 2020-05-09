@@ -16,7 +16,7 @@ import DayVoting from "./pages/DayVoting";
 import WinVillager from "./pages/WinVillager";
 import WinMafia from "./pages/WinMafia";
 
-const socket = socketIOClient("https://mafia-backend.now.sh:5000");
+const socket = socketIOClient("https://mafia-backend.cmrnclffrd.now.sh:80");
 
 const App = () => {
   const [error, setError] = useState();
